@@ -1,28 +1,31 @@
 {
   "name": "@adamjosefus/qr-payment",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "format": "biome format ./src",
-    "test": "vitest run ./src",
-    "test:watch": "vitest dev ./src",
-    "validate": "tsc --noEmit",
-    "validate:watch": "tsc --noEmit --watch",
-    "build": "tsc",
-    "prepublishOnly": "npm run validate && npm run format && npm run build"
-  },
+  "description": "Package for generating QR code content for payment in Czech Republic.",
   "keywords": [
     "qr",
     "payment",
     "spayd",
     "qr platba"
   ],
-  "author": "Adam Josefus",
   "license": "ISC",
+  "author": "Adam Josefus",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "biome format ./src",
+    "prepublishOnly": "npm run validate && npm run format && npm run build",
+    "test": "vitest run ./src",
+    "test:watch": "vitest dev ./src",
+    "validate": "tsc --noEmit",
+    "validate:watch": "tsc --noEmit --watch"
+  },
   "devDependencies": {
     "biome": "^0.3.3",
     "typescript": "^5.3.2",
     "vitest": "^0.34.6"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
