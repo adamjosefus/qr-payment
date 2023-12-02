@@ -1,6 +1,6 @@
 {
   "name": "@adamjosefus/qr-payment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package for generating QR code content for payment in Czech Republic.",
   "keywords": [
     "qr",
@@ -10,7 +10,7 @@
   ],
   "license": "ISC",
   "author": "Adam Josefus",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "format": "biome format ./src",
@@ -27,5 +27,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  }
+  },
+  "dependencies": {}
 }
