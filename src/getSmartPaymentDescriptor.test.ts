@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { computeSmartPaymentDescriptor } from "./computeSmartPaymentDescriptor";
+import { computeSmartPaymentDescriptor } from "./getSmartPaymentDescriptor";
 import { PaymentOptions } from "./types";
 
 const input: PaymentOptions = {

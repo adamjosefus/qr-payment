@@ -1,7 +1,7 @@
 {
-  "name": "@adamjosefus/qr-payment",
-  "version": "1.0.1",
-  "description": "Package for generating QR code content for payment in Czech Republic.",
+  "name": "short-payment-descriptor",
+  "version": "1.0.0",
+  "description": "Package for generating Short Payment Descriptor strings for QR code payments.",
   "keywords": [
     "qr",
     "payment",
@@ -10,7 +10,8 @@
   ],
   "license": "ISC",
   "author": "Adam Josefus",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "biome format ./src",
@@ -24,9 +25,6 @@
     "biome": "^0.3.3",
     "typescript": "^5.3.2",
     "vitest": "^0.34.6"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {}
 }
