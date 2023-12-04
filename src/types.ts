@@ -1,10 +1,10 @@
 export type BankAccount = {
   IBAN: string;
-  BIC?: string;
+  BIC?: string | null;
 };
 
 export type CzechBankAccount = {
-  prefix?: string;
+  prefix?: string | null;
   number: string;
   bankCode: string;
 };
@@ -12,14 +12,14 @@ export type CzechBankAccount = {
 export type PaymentOptions = {
   account: BankAccount | CzechBankAccount;
   alternativeAccounts?: (BankAccount | CzechBankAccount)[];
-  amount?: number;
-  currency?: string;
-  sendersReference?: number;
-  recipientName?: string;
-  variableSymbol?: string;
-  constantSymbol?: string;
-  specificSymbol?: string;
-  ownIdentifier?: string;
-  date?: Date;
-  message?: string;
+  amount?: number | null;
+  currency?: string | null;
+  sendersReference?: number | null;
+  recipientName?: string | null;
+  variableSymbol?: string | null;
+  constantSymbol?: string | null;
+  specificSymbol?: string | null;
+  ownIdentifier?: string | null;
+  date?: Date | null;
+  message?: string | null;
 };

@@ -13,6 +13,14 @@ function getAccountString(account: PaymentOptions["account"]) {
   }
 }
 
+function isStringValid(value: string | null | undefined): value is string {
+  return value != null && value.trim() !== "";
+}
+
+function isPositiveInteger(value: number | null | undefined): value is number {
+  return value != null && Number.isInteger(value) && value >= 0;
+}
+
 export function getShortPaymentDescriptor(options: PaymentOptions): string {
   const result: string[] = ["SPD*1.0"];
 
@@ -26,19 +34,19 @@ export function getShortPaymentDescriptor(options: PaymentOptions): string {
     );
   }
 
-  if (options.amount != null) {
+  if (options.amount != null && options.amount > 0) {
     result.push(`AM:${options.amount.toFixed(2)}`);
   }
 
-  if (options.currency != null) {
-    result.push(`CC:${options.currency}`);
+  if (isStringValid(options.currency)) {
+    result.push(`CC:${options.currency.trim()}`);
   }
 
-  if (Number.isInteger(options.sendersReference)) {
+  if (isPositiveInteger(options.sendersReference)) {
     result.push(`RF:${options.sendersReference}`);
   }
 
-  if (options.recipientName != null) {
+  if (isStringValid(options.recipientName)) {
     result.push(
       `RN:${escapeDisallowedCharacters(options.recipientName.trim())}`
     );
@@ -52,24 +60,32 @@ export function getShortPaymentDescriptor(options: PaymentOptions): string {
     result.push(`DT:${yyyy}${mm}${dd}`);
   }
 
-  if (options.message != null) {
+  if (isStringValid(options.message)) {
     result.push(`MSG:${escapeDisallowedCharacters(options.message.trim())}`);
   }
 
-  if (options.constantSymbol != null) {
-    result.push(`X-KS:${escapeDisallowedCharacters(options.constantSymbol)}`);
+  if (isStringValid(options.constantSymbol)) {
+    result.push(
+      `X-KS:${escapeDisallowedCharacters(options.constantSymbol.trim())}`
+    );
   }
 
-  if (options.variableSymbol != null) {
-    result.push(`X-VS:${escapeDisallowedCharacters(options.variableSymbol)}`);
+  if (isStringValid(options.variableSymbol)) {
+    result.push(
+      `X-VS:${escapeDisallowedCharacters(options.variableSymbol.trim())}`
+    );
   }
 
-  if (options.specificSymbol != null) {
-    result.push(`X-SS:${escapeDisallowedCharacters(options.specificSymbol)}`);
+  if (isStringValid(options.specificSymbol)) {
+    result.push(
+      `X-SS:${escapeDisallowedCharacters(options.specificSymbol.trim())}`
+    );
   }
 
-  if (options.ownIdentifier != null) {
-    result.push(`X-ID:${escapeDisallowedCharacters(options.ownIdentifier)}`);
+  if (isStringValid(options.ownIdentifier)) {
+    result.push(
+      `X-ID:${escapeDisallowedCharacters(options.ownIdentifier.trim())}`
+    );
   }
 
   return result.join("*");
