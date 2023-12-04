@@ -13,7 +13,7 @@ function getAccountString(account: PaymentOptions["account"]) {
   }
 }
 
-export function computeSmartPaymentDescriptor(options: PaymentOptions): string {
+export function getShortPaymentDescriptor(options: PaymentOptions): string {
   const result: string[] = ["SPD*1.0"];
 
   result.push(`ACC:${getAccountString(options.account)}`);

@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { computeSmartPaymentDescriptor } from "./getSmartPaymentDescriptor";
+import { getShortPaymentDescriptor } from "./getShortPaymentDescriptor";
 import { PaymentOptions } from "./types";
 
 const input: PaymentOptions = {
@@ -22,5 +22,5 @@ const expected =
   "SPD*1.0*ACC:CZ3507100000190000123457*AM:987.65*CC:CZK*DT:20241231*MSG:Moje kr%C3%A1sn%C3%A1 zpr%C3%A1va pro p%C5%99%C3%ADjemce! :)*X-KS:4443*X-VS:1234567890*X-SS:1122334455*X-ID:moje_id_123";
 
 test("SPAYD", () => {
-  expect(computeSmartPaymentDescriptor(input)).toBe(expected);
+  expect(getShortPaymentDescriptor(input)).toBe(expected);
 });
