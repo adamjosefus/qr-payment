@@ -11,9 +11,9 @@ npm i short-payment-descriptor
 ## Usage
 
 ```typescript
-import { getSmartPaymentDescriptor } from 'short-payment-descriptor';
+import { getShortPaymentDescriptor } from 'short-payment-descriptor';
 
-const spyad = getSmartPaymentDescriptor({
+const spyad = getShortPaymentDescriptor({
   account: {
     prefix: "19",
     number: "123457",
