@@ -1,6 +1,6 @@
 {
   "name": "short-payment-descriptor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package for generating Short Payment Descriptor strings for QR code payments.",
   "keywords": [
     "qr",
